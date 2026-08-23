@@ -1,0 +1,324 @@
+@use "variaveis" as *;
+@use "mixins" as *;
+
+/* ==========================
+   BOTÃO
+========================== */
+
+.btn{
+    @include botao;
+}
+
+/* ==========================
+   TÍTULOS
+========================== */
+
+.section-title{
+
+    margin-bottom:$esp-5;
+
+    &__subtitle{
+        color:$cor-primaria;
+        font-size:.8rem;
+        font-weight:bold;
+        letter-spacing:.15rem;
+    }
+
+    &__heading{
+        font-size:clamp(2rem,4vw,3rem);
+    }
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+
+    @include flex-center(space-between);
+
+    min-height:90vh;
+
+    gap:$esp-6;
+
+    padding:$esp-7 8%;
+
+    background:linear-gradient(135deg,#f8f5ff,#fff);
+
+    &__content{
+        flex:1;
+    }
+
+    &__subtitle{
+        color:$cor-primaria;
+        font-weight:bold;
+        letter-spacing:.15rem;
+        margin-bottom:$esp-2;
+    }
+
+    &__title{
+        font-size:clamp(2.5rem,5vw,5rem);
+        line-height:1.05;
+        margin-bottom:$esp-3;
+
+        &-highlight{
+            color:$cor-primaria;
+        }
+    }
+
+    &__text{
+        max-width:35rem;
+        color:$cor-texto-suave;
+        margin-bottom:$esp-4;
+    }
+
+    &__image{
+        flex:1;
+
+        img{
+            border-radius:$radius-lg;
+        }
+    }
+}
+
+/* ==========================
+   ABOUT
+========================== */
+
+.about{
+
+    background:white;
+
+    &__content{
+        display:flex;
+        gap:$esp-7;
+    }
+
+    &__column{
+        flex:1;
+    }
+
+    &__heading{
+        margin-bottom:$esp-2;
+    }
+
+    &__text{
+        color:$cor-texto-suave;
+        margin-bottom:$esp-2;
+    }
+
+    &__values{
+        display:flex;
+        flex-direction:column;
+        gap:$esp-3;
+    }
+
+    &__number{
+        color:$cor-primaria;
+        font-size:1.5rem;
+    }
+}
+
+/* ==========================
+   SERVICES
+========================== */
+
+.services{
+
+    background:$cor-escuro;
+
+    color:white;
+
+    &__grid{
+
+        display:grid;
+
+        grid-template-columns:repeat(3,1fr);
+
+        gap:$esp-3;
+    }
+
+    &__card{
+
+        padding:$esp-4;
+
+        min-height:15rem;
+
+        border:1px solid #333;
+        border-radius:$radius-md;
+
+        transition:$transicao;
+
+        &:hover{
+            transform:translateY(-.5rem);
+            border-color:$cor-primaria;
+        }
+    }
+
+    &__number{
+        color:#8f64ff;
+        font-weight:bold;
+    }
+
+    &__title{
+        margin:$esp-3 0 $meio-espaco;
+    }
+
+    &__text{
+        color:#aaa;
+    }
+}
+
+/* ==========================
+   TESTIMONIALS
+========================== */
+
+.testimonials{
+
+    &__grid{
+
+        display:grid;
+
+        grid-template-columns:repeat(3,1fr);
+
+        gap:$esp-3;
+    }
+
+    &__card{
+
+        padding:$esp-4;
+
+        background:white;
+
+        border-radius:$radius-md;
+
+        box-shadow:0 .5rem 2rem rgba(0,0,0,.05);
+    }
+
+    &__text{
+        color:$cor-texto-claro;
+        margin-bottom:$esp-4;
+    }
+
+    &__role{
+        color:#888;
+        font-size:.85rem;
+    }
+}
+
+/* ==========================
+   CONTACT
+========================== */
+
+.contact{
+
+    background:white;
+
+    &__content{
+        display:flex;
+        gap:$esp-7;
+    }
+
+    &__info,
+    &__form{
+        flex:1;
+    }
+
+    &__text{
+        color:$cor-texto-suave;
+        margin-bottom:$esp-4;
+    }
+
+    &__item{
+        display:flex;
+        flex-direction:column;
+        margin-bottom:$esp-3;
+    }
+
+    &__label{
+        color:$cor-primaria;
+        font-weight:bold;
+    }
+
+    &__value{
+        color:$cor-texto-claro;
+    }
+
+    &__form{
+        display:flex;
+        flex-direction:column;
+        gap:.6rem;
+    }
+
+    &__input,
+    &__textarea{
+
+        padding:.9rem;
+
+        border:1px solid $cor-borda;
+        border-radius:$radius-sm;
+
+        font:inherit;
+
+        resize:vertical;
+
+        &:focus{
+            outline:2px solid $cor-primaria;
+            border-color:transparent;
+        }
+    }
+
+    &__button{
+        margin-top:$meio-espaco;
+    }
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media(max-width:900px){
+
+    .hero{
+        padding:4rem 5%;
+        gap:$esp-4;
+    }
+
+    .services__grid,
+    .testimonials__grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about__content,
+    .contact__content{
+        gap:$dobro-espaco;
+    }
+}
+
+@media(max-width:650px){
+
+    .hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        min-height:auto;
+
+        padding-top:4rem;
+
+        &__text{
+            margin-inline:auto;
+        }
+    }
+
+    .about__content,
+    .contact__content{
+        flex-direction:column;
+    }
+
+    .services__grid,
+    .testimonials__grid{
+        grid-template-columns:1fr;
+    }
+}

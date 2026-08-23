@@ -1,0 +1,45 @@
+@use "variaveis" as *;
+
+/* Flex padrão */
+
+@mixin flex-center(
+    $justify:center,
+    $align:center
+){
+    display:flex;
+    justify-content:$justify;
+    align-items:$align;
+}
+
+/* Botão padrão */
+
+@mixin botao(
+    $bg:$cor-primaria,
+    $hover:$cor-primaria-escura
+){
+    display:inline-block;
+
+    padding:.9rem 1.8rem;
+
+    border:none;
+    border-radius:$radius-sm;
+
+    background:$bg;
+    color:$cor-branco;
+
+    font-weight:bold;
+
+    cursor:pointer;
+    transition:$transicao;
+
+    &:hover{
+        background:$hover;
+        transform:translateY(-2px);
+    }
+}
+
+/* Espaçamento */
+
+@mixin section-padding{
+    padding:6rem 8%;
+}
